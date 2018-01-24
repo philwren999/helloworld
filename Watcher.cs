@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using HtmlAgilityPack;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace helloworld
 {
@@ -10,6 +11,7 @@ namespace helloworld
     {
         private string _content = string.Empty;
         private HtmlDocument _htmlDocument = null;
+        private List<HtmlImage> _imageList = new List<HtmlImage>();        
         
         public Watcher Fetch(string url)
         {
@@ -28,20 +30,20 @@ namespace helloworld
             _htmlDocument = new HtmlDocument();
             _htmlDocument.LoadHtml(_content);
 
+            return this;
+        }
+
+        public Watcher FindImages()
+        {
             var nodes = _htmlDocument.DocumentNode.SelectNodes("//img");
             
-            var i = 0;
             foreach(var node in nodes)
             {
-                var src = node.Attributes["src"];
+                var img = new HtmlImage(node);
+                if (!img.Valid()) continue;
+                _imageList.Add(img);
 
-                Console.WriteLine($"{i:000};NodeType:{node.NodeType};Name:{node.Name};SRC:{src?.Value}");
-
-                /*foreach(var att in node.Attributes)
-                {
-                    Console.WriteLine($"+ {att.Name}: {att.Value}");
-                }*/
-                i++;
+                Console.WriteLine(img);
             }
 
             return this;

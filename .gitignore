@@ -1,2 +1,7 @@
 *.dll
 *.pdb
+obj/Debug/netcoreapp2.0/helloworld.pdb
+bin/Debug/netcoreapp2.0/helloworld.dll
+bin/Debug/netcoreapp2.0/helloworld.pdb
+obj/Debug/netcoreapp2.0/helloworld.dll
+obj/Debug/netcoreapp2.0/helloworld.csproj.CoreCompileInputs.cache

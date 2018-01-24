@@ -10,7 +10,8 @@ namespace helloworld
 
             var b= new Watcher();
             b.Fetch(url: "http://www.bbc.co.uk")
-                .Parse();
+                .Parse()
+                .FindImages();
 
             Console.WriteLine("=======================");
         }
