@@ -37,11 +37,10 @@ namespace helloworld
 
                 Console.WriteLine($"{i:000};NodeType:{node.NodeType};Name:{node.Name};SRC:{src?.Value}");
 
-                foreach(var att in node.Attributes)
+                /*foreach(var att in node.Attributes)
                 {
                     Console.WriteLine($"+ {att.Name}: {att.Value}");
-                }
-                Console.WriteLine(node.InnerText);
+                }*/
                 i++;
             }
 
