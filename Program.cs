@@ -9,10 +9,10 @@ namespace helloworld
             Console.WriteLine("Hello World!");
 
             var b= new Watcher();
-            b.Go(url: "http://www.bbc.co.uk");
+            b.Fetch(url: "http://www.bbc.co.uk")
+                .Parse();
 
             Console.WriteLine("=======================");
-            Console.ReadLine();
         }
     }
 }
